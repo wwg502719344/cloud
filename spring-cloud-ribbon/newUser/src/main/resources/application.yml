@@ -1,0 +1,58 @@
+#创建端口号
+server:
+  port: 8101
+#创建数据库连接
+spring:
+  datasource:
+    url : jdbc:mysql://47.100.170.2:3306/W2G
+    username : root
+    password : healife605
+    driver-class-name : com.mysql.jdbc.Driver
+    # 使用druid数据源获取连接
+    type : com.alibaba.druid.pool.DruidDataSource
+    max-active : 20
+    initial-size : 1
+    min-idle : 3
+    max-wait : 60000
+    time-between-eviction-runs-millis : 60000
+    min-evictable-idle-time-millis : 300000
+    test-while-idle : true
+    test-on-borrow : false
+    test-on-return : false
+  #注册到Eureka Server上的名称
+  application :
+    name  : new-user
+  #cloud:
+  #  discovery:
+  #    client:
+  #      health-indicator:
+  #        enabled: false
+  #      composite-indicator:
+  #        enabled: false
+mybatis:
+    mapperLocations: classpath:mapperXml/*.xml
+
+
+mapper:
+  mappers:
+      - com.wwg.markerMapper.CommonMapper
+  not-empty: false
+  identity: MYSQL
+
+eureka:
+  client:
+    healthcheck:
+      enabled: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka/ #指定服务注册中心地址
+  instance:
+    #客户端向注册服务器发送心跳的间隔
+    lease-renewal-interval-in-seconds: 5
+    #告诉服务器如果10秒内未发送任何续约请求，则关闭该客户端
+    lease-expiration-duration-in-seconds: 10
+
+
+
+
+
+

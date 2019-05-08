@@ -1,0 +1,32 @@
+server:
+  port: 8500
+spring:
+  application:
+    name: configserver
+  rabbitmq:
+        host: 47.100.170.2
+        port: 5672
+        username: user
+        password: 123456
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.coding.net/wwgtym/spring-cloud-conf.git
+          username: 502719344@qq.com
+          password: wuwenge1992511
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/  #指定eureka服务器的地址
+
+#开放刷新等访问端口
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh
+

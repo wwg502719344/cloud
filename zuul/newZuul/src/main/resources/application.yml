@@ -1,0 +1,52 @@
+server:
+  port: 8400
+spring:
+  application:
+    name: new-zuul
+  datasource:
+      url : jdbc:mysql://47.100.170.2:3306/W2G
+      username : root
+      password : healife605
+      driver-class-name : com.mysql.jdbc.Driver
+      # 使用druid数据源获取连接
+      type : com.alibaba.druid.pool.DruidDataSource
+      max-active : 20
+      initial-size : 1
+      min-idle : 3
+      max-wait : 60000
+      time-between-eviction-runs-millis : 60000
+      min-evictable-idle-time-millis : 300000
+      test-while-idle : true
+      test-on-borrow : false
+      test-on-return : false
+#zuul:
+#  host:
+#    connect-timeout-millis: 10000
+#    socket-timeout-millis: 60000
+#  routes:
+#    #两种访问方式，一种是serviceId访问，一种是匹配URI方式访问
+#    #使用URL方式进行匹配的时候，将无法使用hystrixCommand注解包裹请求
+#    #...使用url的方式具有局限性，在集群的情况下，需要手动动态添加url地址，不推荐使用
+#    #user-route:
+#    #  service-id: new-movie
+#    #  #url: http://localhost:8200/
+#    #  path: /movie/**
+#    new-movie: /movie/**
+#    new-user: /user/**
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+  eureka:
+    enabled: false  #防止侵入性,不应该要求所有服务都依赖eureka
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#new-user:
+#  ribbon:
+#    listOfServers: localhost:8100

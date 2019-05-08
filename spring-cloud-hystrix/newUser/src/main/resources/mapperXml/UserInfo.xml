@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.wwg.mapper.UserInfoMapper">
+
+    <resultMap id="UserInfo" type="com.wwg.entity.UserInfo">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+
+    <select id="searchAll" resultMap="UserInfo">
+        SELECT id,name from user_info
+    </select>
+
+</mapper>
+

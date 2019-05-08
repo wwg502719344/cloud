@@ -1,0 +1,22 @@
+spring:
+  profiles: peer1
+  rabbitmq:
+      host: 47.100.170.2
+      port: 5672
+      username: user
+      password: 123456
+server:
+  port: 8401
+---
+spring:
+  profiles: peer2
+  rabbitmq:
+      host: 47.100.170.2
+      port: 5672
+      username: user
+      password: 123456
+server:
+  port: 8402
+
+
+

@@ -1,0 +1,49 @@
+server:
+  port: 8400
+spring:
+  application:
+    name: configserver
+  rabbitmq:
+        host: 47.100.170.2
+        port: 5672
+        username: user
+        password: 123456
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://git.coding.net/wwgtym/spring-cloud-conf.git
+          username: 502719344@qq.com
+          password: wuwenge1992511
+          #uri: https://git.oschina.net/itmuch/spring-cloud-config-repo      # 配置Git仓库的地址
+          #username:                                                         # Git仓库的账号
+          #password:
+      #discovery:
+      #  enable: true
+      #  service-id: newEureka
+eureka:
+  #instance:
+    #设置主机名+端口访问实力
+    #hostname: peer1
+  client:
+    #Eureka服务注册中心也会将自己作为客户端来尝试注册它自己，所以我们需要禁用它的客户端注册行为。
+    #此处若是不禁用，把两个eureka都启动就不会报错了
+    #register-with-eureka: false
+    #fetch-registry: false
+    service-url:
+      #将自己注册到peer2这个eureka上面
+      defaultZone: http://localhost:8761/eureka/  #指定eureka服务器的地址
+
+#开放刷新等访问端口
+management:
+  endpoint:
+    refresh:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,bus-refresh
+
+
+
+
