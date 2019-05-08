@@ -14,7 +14,7 @@ spring:
         git:
           uri: https://git.coding.net/wwgtym/spring-cloud-conf.git
           username: 502719344@qq.com
-          password: wuwenge1992511
+          password: *************
           #uri: https://git.oschina.net/itmuch/spring-cloud-config-repo      # 配置Git仓库的地址
           #username:                                                         # Git仓库的账号
           #password:

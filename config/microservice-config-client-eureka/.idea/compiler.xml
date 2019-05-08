@@ -22,13 +22,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="client" />
         <module name="microservice-config-client-eureka" />
         <module name="microservice-config-server-eureka" />
+        <module name="newconfig" />
+        <module name="newEureka" />
+        <module name="newMovie" />
+        <module name="newUser" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="client" target="1.8" />
       <module name="microservice-config-client-eureka" target="1.8" />
       <module name="microservice-config-server-eureka" target="1.8" />
+      <module name="newconfig" target="1.8" />
+      <module name="newEureka" target="1.8" />
+      <module name="newMovie" target="1.8" />
+      <module name="newUser" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../client/client.iml" filepath="$PROJECT_DIR$/../client/client.iml" />
       <module fileurl="file://$PROJECT_DIR$/microservice-config-client-eureka.iml" filepath="$PROJECT_DIR$/microservice-config-client-eureka.iml" />
       <module fileurl="file://$PROJECT_DIR$/../microservice-config-server-eureka/microservice-config-server-eureka.iml" filepath="$PROJECT_DIR$/../microservice-config-server-eureka/microservice-config-server-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../newEureka/newEureka.iml" filepath="$PROJECT_DIR$/../newEureka/newEureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../newMovie/newMovie.iml" filepath="$PROJECT_DIR$/../newMovie/newMovie.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../newUser/newUser.iml" filepath="$PROJECT_DIR$/../newUser/newUser.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../newConfig/newconfig.iml" filepath="$PROJECT_DIR$/../newConfig/newconfig.iml" />
     </modules>
   </component>
 </project>

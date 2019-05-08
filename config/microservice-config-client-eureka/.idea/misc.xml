@@ -8,6 +8,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../microservice-config-server-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/../client/pom.xml" />
+        <option value="$PROJECT_DIR$/../newConfig/pom.xml" />
+        <option value="$PROJECT_DIR$/../newEureka/pom.xml" />
+        <option value="$PROJECT_DIR$/../newMovie/pom.xml" />
+        <option value="$PROJECT_DIR$/../newUser/pom.xml" />
       </list>
     </option>
   </component>

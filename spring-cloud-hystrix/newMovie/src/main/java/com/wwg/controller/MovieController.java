@@ -53,25 +53,6 @@ public class MovieController {
 
 
   /**
-   * 同步方法测试合并请求(非注解)
-   *
-   * 说明：这个方法是用来与上面的方法做类比的，通过这个实验我们发现如果使用同步方法，
-   *         那么这个请求合并的作用就没有了，这会给findAll方法造成性能浪费
-   */
-  /*@GetMapping("synccollapse")
-  public List<UserInfo> syncCollapseTest(){
-    System.out.println("==========>syncCollapseTest方法执行了");
-    List<UserInfo> userList = new ArrayList<>();
-    UserInfo user1 = new UserCollapseCommand(cacheService, 1).execute();
-    UserInfo user2 = new UserCollapseCommand(cacheService, 2).execute();
-    UserInfo user3 = new UserCollapseCommand(cacheService, 3).execute();
-    userList.add(user1);
-    userList.add(user2);
-    userList.add(user3);
-    return userList;
-  }*/
-
-  /**
    * 模拟合并请求测试(非注解)
    * 这里通过
    */
@@ -109,7 +90,8 @@ public class MovieController {
   }
 
   /**
-   * 单个请求处理
+   * 单个请求处理接口
+   * 调用该接口，该接口通过请求合并调用下面的多请求处理接口
    * @param id
    */
   @GetMapping("/users/{id}")
@@ -120,7 +102,7 @@ public class MovieController {
   }
 
   /**
-   * 多个请求处理
+   * 多个请求处理接口
    * @param ids id串，使用逗号分隔
    */
   @GetMapping("/users")
@@ -153,17 +135,6 @@ public class MovieController {
     return a;
   }
   ///////////////////////////////请求缓存测试-END//////////////////////////////////////////
-
-
-
-
-
-  @CacheResult
-  @HystrixCommand(commandKey = "commandKey2")
-  private Integer getRandomInteger(@CacheKey("id") long id) {
-    Integer a1=storeClient.getRandomInteger();
-    return a1;
-  }
 
 
   /**
