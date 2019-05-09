@@ -35,6 +35,8 @@ public class MovieController {
   @Autowired
   private CacheServiceImpl cacheService;
 
+
+
 ///////////////////////////////请求合并测试-BEGIN//////////////////////////////////////////
 
   /**
@@ -67,8 +69,8 @@ public class MovieController {
 
       Thread.sleep(3000);
 
-      Future<UserInfo> f4 = new UserCollapseCommand(cacheService, 4).queue();
-      Future<UserInfo> f5 = new UserCollapseCommand(cacheService, 5).queue();
+      Future<UserInfo> f4 = new UserCollapseCommand(cacheService, 5).queue();
+      Future<UserInfo> f5 = new UserCollapseCommand(cacheService, 6).queue();
 
       UserInfo u1 = f1.get();
       UserInfo u2 = f2.get();

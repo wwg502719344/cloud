@@ -33,7 +33,13 @@ feign:
             strategy: #默认是THREAD,这里演示改成了信号量隔离模式
               semaphore:
                 maxConcurrentRequests: 3
+            thread:
+              timeoutInMilliseconds: 5000
+          timeout:
+            enabled: false
+
 
 ribbon:
   ReadTimeout: 60000
   ConnectTimeout: 60000
+

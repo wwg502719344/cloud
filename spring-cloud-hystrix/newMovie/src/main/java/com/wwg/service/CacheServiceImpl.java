@@ -81,7 +81,7 @@ public class CacheServiceImpl implements CacheService {
      */
     public List<UserInfo> findAll(List<Integer> ids) {
         UserInfo[] users = restTemplate.getForObject("http://localhost:8100/users?ids={1}", UserInfo[].class, StringUtils.join(ids, ","));
-        //System.out.println(StringUtils.join(ids, ","));
+        System.out.println(StringUtils.join(ids, ","));
         List<UserInfo> u2= Arrays.asList(users);
         List<UserInfo> u1=storeClient.findAll(StringUtils.join(ids, ","));
         return u2;

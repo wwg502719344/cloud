@@ -39,7 +39,6 @@ public class UserBatchCommand extends HystrixCommand<List<UserInfo>> {
     @Override
     protected List<UserInfo> run() {
         List<UserInfo> users = service.findAll(ids);
-        System.out.println(users);
         return users;
     }
 
