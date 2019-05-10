@@ -94,7 +94,7 @@ public class CacheServiceImpl implements CacheService {
      * 请求缓存测试
      * @CacheResult: 标记这是一个缓存方法，其结果将会被缓存，需要注意的是，该注解需要与@HystrixCommand配合使用
      * @CacheKey: 这个注解会对参数进行标记处理，如果没有指定CacheKey，则会将所有参数列表中的值作为cachekey
-     *
+     * commandKey在这里用做标记，在清除缓存的操作中是根据这个值进行查找清除的
      * @param id
      * @return
      */

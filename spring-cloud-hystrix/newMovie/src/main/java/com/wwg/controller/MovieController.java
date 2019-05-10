@@ -127,7 +127,8 @@ public class MovieController {
    */
   @GetMapping("/getCache1")
   public String getCache1() {
-    HystrixRequestContext.initializeContext();//初始化请求上下文
+    //初始化Hystrix请求上下文
+    HystrixRequestContext context =HystrixRequestContext.initializeContext();//初始化请求上下文
     Integer a=cacheService.getRandomInteger(1);
     System.out.println("第一次获取缓存值为"+a);
     Integer a1=cacheService.getRandomInteger(1);
@@ -135,6 +136,8 @@ public class MovieController {
     Integer a2=cacheService.getRandomInteger(1);
     System.out.println("第三次获取缓存值为"+a2);
     String show="第一次请求值:"+a+",第二次请求值为:"+a1+",第三次请求值为:"+a2;
+    //上下文环境用完需要进行关闭
+    context.close();
     return show;
   }
   ///////////////////////////////请求缓存测试-END//////////////////////////////////////////
