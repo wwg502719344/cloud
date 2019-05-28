@@ -58,6 +58,19 @@ public class UserController {
         lists.add(new UserInfo(5, "小李"));
         return lists;
     }
+
+    @GetMapping("/users/{ids}")
+    public List<UserInfo> getUsersByIds2(@PathVariable("ids") String ids){
+        System.out.println("ids===:" + ids);
+        List<UserInfo> lists = new ArrayList<UserInfo>();
+        lists.add(new UserInfo(5, "小李"));
+        lists.add(new UserInfo(1, "小明"));
+        lists.add(new UserInfo(2, "小红"));
+        lists.add(new UserInfo(3, "小张"));
+        lists.add(new UserInfo(4, "小王"));
+
+        return lists;
+    }
 ///////////////////////////////请求合并测试//////////////////////////////////////////
 
 

@@ -42,9 +42,8 @@ public class MovieController {
   /**
    * 注解方式的请求合并
    *
-   * 这里真想不出怎么去测试 这个方法了，有什么好的并发测试框架请自测吧，如果找到这种神器
    */
-    @GetMapping("/collapsebyannotation/{id}")
+  @GetMapping("/collapsebyannotation/{id}")
   public UserInfo collapseByAnnotation(@PathVariable Integer id) throws ExecutionException, InterruptedException {
     Future<UserInfo> one = cacheService.findOneByAnnotation(id);
     UserInfo user = one.get();
