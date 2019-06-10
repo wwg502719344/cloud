@@ -57,8 +57,8 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
         routesMap.putAll(locateRoutesFromDB());
         routesMap.putAll(super.locateRoutes());
 
-        //
         LinkedHashMap<String, ZuulProperties.ZuulRoute> values = new LinkedHashMap<>();
+        //返回映射map下的所有视图
         for (Map.Entry<String, ZuulProperties.ZuulRoute> entry : routesMap.entrySet()) {
             String path = entry.getKey();
             if (!path.startsWith("/")) {
