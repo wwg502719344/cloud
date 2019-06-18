@@ -62,8 +62,9 @@ public class UserCollapseCommand extends HystrixCollapser<List<UserInfo>,UserInf
 
     /**
      * 返回请求的执行结果，并根据对应的request将结果返回到对应的request相应体中
-     * @param userInfos
-     * @param collection
+     * 通过循环所有被合并的请求依次从批处理的结果集中获取对应的结果
+     * @param userInfos 这里是批处理后返回的结果集
+     * @param collection 所有被合并的请求
      */
     @Override
     protected void mapResponseToRequests(List<UserInfo> userInfos, Collection<CollapsedRequest<UserInfo, Integer>> collection) {

@@ -164,19 +164,21 @@ public class MovieController {
 
   /**
    * 控制器方法，方法异常自动降级，hystrix只包裹单个方法
+   * 该方法使用feign实现服务层面的负载均衡
+   * 如果控制层有HystrixCommand，则熔断程序则不会走feign中的回退方法
    * @param id
    * @return
    */
   @HystrixCommand(fallbackMethod = "findByIdsBack")
   @GetMapping("/userBack/{id}")
   public UserInfo findByIds(@PathVariable int id) {
-    return storeClient.findById(id);
-    //return this.restTemplate.getForObject("http://localhost:8100/test/", UserInfo.class);
+    UserInfo userInfo=storeClient.findById(id);
+    return userInfo;
   }
 
   public UserInfo findByIdsBack( int id) {
     UserInfo userInfo=new UserInfo();
-    userInfo.setName("asd1");
+    userInfo.setName("userBack1");
     userInfo.setId(2);
     return userInfo;
   }
@@ -197,6 +199,9 @@ public class MovieController {
   }
 
 
+  /**
+   * 该方法测试loadBalancerClient对象是否实现负载均衡
+   */
   @GetMapping("testRibbon")
   public void test(){
     ServiceInstance instance =loadBalancerClient.choose("new-user");

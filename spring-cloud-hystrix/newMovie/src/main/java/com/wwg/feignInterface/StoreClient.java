@@ -20,6 +20,7 @@ import java.util.List;
  * 此处需要注意，在注解@FeignClient中有两个属性，fallback和fallbackFactory
  * 前者是feign包裹hystrix下的回退类，后者可以查看回退的原因等详细信息
  * Q:feignClient通过fallback实现的降级，和通过HystrixCommond包裹下的降级有什么区别
+ * A:feign内部集成了Hystrix的功能，每一个请求同样是被hystrix包裹的
  */
 @FeignClient(name = "new-user",configuration = FooConfiguration.class,fallback = HystrixClientFallback.class,fallbackFactory=HystrixClientFallback.class)
 public interface StoreClient {
@@ -40,7 +41,7 @@ public interface StoreClient {
     @RequestLine("GET /findById/{id}")
     public UserInfo findById(@Param("id") int id);
 
-    @RequestLine("POST /findById/{id}")
+    @RequestLine("POST /feignsPostFallBack")
     UserInfo feignsPostFallBack(UserInfo userInfo);
 
     //@CacheResult

@@ -80,14 +80,19 @@ public class CacheServiceImpl implements CacheService {
      * @return
      */
     public List<UserInfo> findAll(List<Integer> ids) {
-        UserInfo[] users = restTemplate.getForObject("http://localhost:8100/users?ids={1}", UserInfo[].class, StringUtils.join(ids, ","));
+
         //获取进入这个方法的所有参数
         System.out.println(StringUtils.join(ids, ","));
-        List<UserInfo> u2= Arrays.asList(users);
+
+        //非feign方法
+        //UserInfo[] users = restTemplate.getForObject("http://localhost:8100/users?ids={1}", UserInfo[].class, StringUtils.join(ids, ","));
+        //List<UserInfo> u2= Arrays.asList(users);
+
+        //feign方法
         String stringids=StringUtils.join(ids, ",");
         List<UserInfo> u1=storeClient.findAll(stringids);
 
-        return u2;
+        return u1;
     }
 
     //////////////////////////////////非注解方式实现请求合并-END//////////////////////////////////////

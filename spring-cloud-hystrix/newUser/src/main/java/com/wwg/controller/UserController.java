@@ -125,6 +125,7 @@ public class UserController {
                 .build();
         List<UserInfo> u=userInfoMapper.selectByCondition(mapperFilter.getCondition());
         UserInfo us=u.get(0);
+        System.out.println("服务启动");
         return us;
     }
 
@@ -137,6 +138,7 @@ public class UserController {
                 .build();
         List<UserInfo> u=userInfoMapper.selectByCondition(mapperFilter.getCondition());
         UserInfo us=u.get(0);
+        System.out.println("name="+us.getName());
         return us;
     }
 
