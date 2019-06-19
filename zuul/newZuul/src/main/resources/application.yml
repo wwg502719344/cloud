@@ -25,7 +25,7 @@ zuul:
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 60000
-  routes:
+  #routes:
     #两种访问方式，一种是serviceId访问，一种是匹配URI方式访问
     #使用URL方式进行匹配的时候，将无法使用hystrixCommand注解包裹请求
     #...使用url的方式具有局限性，在集群的情况下，需要手动动态添加url地址，不推荐使用
@@ -34,8 +34,8 @@ zuul:
     #  url: http://localhost:8100/
     #  path: /user/**
 
-    new-movie: /movie/**
-    new-user: /user/**
+    #new-movie: /movie/**
+    #new-user: /user/**
 
 eureka:
   client:
@@ -47,7 +47,7 @@ ribbon:
   ConnectTimeout: 60000
   eureka:
     #防止侵入性,不应该要求所有服务都依赖eureka,如果使用serviceId的方式，此处需要设置为true
-    enabled: true
+    enabled: false
 #开启actuator端点访问功能
 management:
   endpoints:

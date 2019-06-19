@@ -32,6 +32,7 @@ public class MovieController {
    */
   @GetMapping("/feignsFallBack/{id}")
   public UserInfo feignsFallBack(@PathVariable int id) {
+    System.out.println(id);
     return storeClient.feignsFallBack(id);
     //return this.restTemplate.getForObject("http://localhost:8100/test/", UserInfo.class);
   }
